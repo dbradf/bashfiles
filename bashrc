@@ -34,9 +34,9 @@ function source_directory {
 ################################################################################ 
                                                                                                                 
 # Source .profile, if it exists                                                                                 
-if [ -e "$HOME/.profile" ]; then                                                                                
-    source $HOME/.profile                                                                                       
-fi                                                                                                              
+#if [ -e "$HOME/.profile" ]; then                                                                                
+    #source $HOME/.profile                                                                                       
+#fi                                                                                                              
                                                                                                                 
 if [ -e $BASH_CONFIG_DIRECTORY ] ; then                                                                         
     # Load Libs                                                                                                 
