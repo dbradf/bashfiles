@@ -78,4 +78,4 @@ ps1_set()
 } # end ps1_set()
 
 
-ps1_set --prompt ">"
+ps1_set --prompt "$"

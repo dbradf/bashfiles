@@ -32,12 +32,7 @@ function source_directory {
 ################################################################################ 
 # Main                                                                                                          
 ################################################################################ 
-                                                                                                                
-# Source .profile, if it exists                                                                                 
-#if [ -e "$HOME/.profile" ]; then                                                                                
-    #source $HOME/.profile                                                                                       
-#fi                                                                                                              
-                                                                                                                
+
 if [ -e $BASH_CONFIG_DIRECTORY ] ; then                                                                         
     # Load Libs                                                                                                 
     for lib in "${LIBRARIES[@]}"; do                                                                            
@@ -50,5 +45,9 @@ fi
                                                                                                                 
 # Options                                                                                                       
 set -o vi                                                                                                       
+
+if [ -e $HOME/etc/terminfo ]; then
+    export TERMINFO=$HOME/etc/terminfo
+fi
                                                                                                                 
 alias source_bash="source $HOME/.bashrc"                           
