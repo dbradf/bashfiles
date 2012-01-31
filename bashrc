@@ -1,20 +1,20 @@
 #!/usr/bin/env bash                                                              
-                                                                                                                
-SYSTEM=`uname`                                                                                                  
-                                                                                     
-BASH_CONFIG_DIRECTORY=$HOME/.bash                                                                               
-                                                                                                                
-BASH_LIB_DIRECTORY=$BASH_CONFIG_DIRECTORY/lib                                                                   
-BASH_PLUGIN_DIRECTORY=$BASH_CONFIG_DIRECTORY/plugins                             
-                                                                                                                
-LIBRARIES=(path defaults colors git)                                                                            
-                                                                                                                
+
+SYSTEM=`uname`
+
+BASH_CONFIG_DIRECTORY=$HOME/.bash
+
+BASH_LIB_DIRECTORY=$BASH_CONFIG_DIRECTORY/lib
+BASH_PLUGIN_DIRECTORY=$BASH_CONFIG_DIRECTORY/plugins
+
+LIBRARIES=(path defaults colors git)
+
 # Source all the files in a given directory with the .bash extension             
-# $1 = directory to search                                                                                      
-function source_directory {                                                                                     
-    local dir=$1                                                                                                
-                                                                                                                
-    if [ -e "$dir" ]; then                                                                                      
+# $1 = directory to search
+function source_directory {
+    local dir=$1
+
+    if [ -e "$dir" ]; then
         if [ -d "$dir" ]; then                                                                                  
             files=`find $dir -follow -name '*.bash' -print`                      
                                                                                                                 

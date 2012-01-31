@@ -17,6 +17,8 @@ alias cdbsrc='cd $BASE/src'
 
 alias rmsb="mksb -undo -auto"
 
+alias debug=/gsa/ausgsa/home/d/a/daco/pub/debug
+
 
 # Wrapper around workon to set some env variables
 workonsb() {
