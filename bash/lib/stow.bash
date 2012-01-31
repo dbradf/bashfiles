@@ -1,4 +1,7 @@
 
+
+export PATH=$PATH:$HOME/local/bin
+
 STOW_DIRECTORY=$HOME/local/stow
 
 stow() {
