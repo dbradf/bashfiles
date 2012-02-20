@@ -1,5 +1,9 @@
 
 
+if [ "$SYSTEM" = "Darwin" ]; then
+    export CSCOPE_BINARY=/usr/bin/cscope
+fi
+
 export SANDBOX_DIRECTORY=/gsa/ausgsa/home/d/a/davidbra/sb
 
 # Setup shortcuts
@@ -45,7 +49,15 @@ workonsb() {
 
 # List available sandboxes
 lssb() {
-    ls -1 $SANDBOX_DIRECTORY
+    local sbs
+    local sb
+
+    sbs=`ls -1 $SANDBOX_DIRECTORY`
+
+    for sb in $sbs; do
+        backing_tree=`ls -l $SANDBOX_DIRECTORY/$sb/link | cut -d '>' -f 2`
+        echo "$sb -> $backing_tree"
+    done
 } # end lssb()
 
 
