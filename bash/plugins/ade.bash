@@ -7,7 +7,9 @@ fi
 export SANDBOX_DIRECTORY=/gsa/ausgsa/home/d/a/davidbra/sb
 
 # Setup shortcuts
+alias cdcomm='cd $BASE/src/bos/kernext/pool/common'
 alias cdserv='cd $BASE/src/bos/kernext/pool/server'
+alias cdtm='cd $BASE/src/bos/kernext/pool/server/tm'
 alias cdpfs='cd $BASE/src/bos/kernext/pool/server/pfs'
 
 alias cdbt="cd src link/src"
