@@ -7,7 +7,7 @@ BASH_CONFIG_DIRECTORY=$HOME/.bash
 BASH_LIB_DIRECTORY=$BASH_CONFIG_DIRECTORY/lib
 BASH_PLUGIN_DIRECTORY=$BASH_CONFIG_DIRECTORY/plugins
 
-LIBRARIES=(path defaults colors git)
+LIBRARIES=(path defaults colors git-completion)
 
 # Source all the files in a given directory with the .bash extension             
 # $1 = directory to search

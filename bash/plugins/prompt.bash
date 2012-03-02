@@ -6,13 +6,7 @@ load_colors
 
 ps1_git()
 {
-    local branch=""
-
-    branch=`git_get_current_branch`
-
-    if [ "$branch" != "" ]; then
-        printf "${YELLOWF}(git:$branch)${COLORRESET}"
-    fi
+    printf "${YELLOWF} $(__git_ps1 "(git:%s)")${COLORRESET}"
 } # end ps1_git()
 
 
@@ -74,8 +68,10 @@ ps1_set()
         esac
     done
 
-    PS1="\$(ps1_error)$(ps1_identity) \$(ps1_git)${separator}${prompt_char} "
+    PS1="\$(ps1_error)$(ps1_identity)\$(ps1_git)${separator}${prompt_char} "
 } # end ps1_set()
 
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWUPSTREAM=auto
 
 ps1_set --prompt "$"
