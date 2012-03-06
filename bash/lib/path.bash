@@ -25,6 +25,7 @@ elif [ "$SYSTEM" = "AIX" ]; then
     PATH=$PATH:/usr/java5/bin
     PATH=$PATH:/opt/freeware/bin
     PATH=$PATH:/gsa/ausgsa/projects/n/nxt/git/bin
+    MANPATH=$MANPATH:/opt/freeware/man
 fi
 
-export PATH
+export PATH MANPATH
