@@ -1,25 +1,36 @@
 
 add_dir_to_path() {
+    local before=
+    if [ "$1" = "-before" ]; then
+        before=1
+        shift
+    fi
+
     for dir in $@; do
         # Only add dirs that exists
         if [ -e $dir ]; then
-            PATH=$PATH:$dir
+            if [ -n "$before" ]; then
+                PATH=$dir:$PATH
+            else
+                PATH=$PATH:$dir
+            fi
         fi
     done
 } # end add_dir_to_path
 
-# XXX
-PATH=$HOME/local/stow/ruby-1.9.3.0/bin:$PATH
-
-# defaults
-PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin
-
 # local tools
-PATH=$HOME/local/bin:$HOME/bin:$PATH
+add_dir_to_path -before $HOME/local/bin $HOME/bin
+
 
 if [ "$SYSTEM" = "Darwin" ]; then
-    add_dir_to_path /Developer/usr/bin
+    # SML
+    add_dir_to_path /usr/local/smlnj-110.74/bin
+    # Ruby gem binaries
+    add_dir_to_path /usr/local/Cellar/ruby/1.9.3-p194/bin
+    # Homebrew path
+    add_dir_to_path -before /usr/local/bin
 elif [ "$SYSTEM" = "AIX" ]; then
+    PATH=$HOME/local/stow/ruby-1.9.3.0/bin:$PATH
     PATH=$PATH:/gsa/ausgsa/projects/a/aixtools/bin
     PATH=$PATH:/usr/contrib/bin
     PATH=$PATH:/usr/java5/bin
