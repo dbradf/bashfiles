@@ -10,3 +10,7 @@ elif [ "SYSTEM" = "AIX" ]; then
 fi
 
 alias man="gem man -s"
+
+# alias for testing ruby commands 
+# Uses the local lib folder for the library
+alias truby="RUBYLIB=lib ruby"
