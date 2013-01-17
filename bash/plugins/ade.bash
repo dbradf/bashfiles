@@ -4,13 +4,17 @@ if [ "$SYSTEM" = "Darwin" ]; then
     export CSCOPE_BINARY=/usr/bin/cscope
 fi
 
-export SANDBOX_DIRECTORY=/gsa/ausgsa/home/d/a/davidbra/sb
+#export SANDBOX_DIRECTORY=/gsa/ausgsa/home/d/a/davidbra/sb
+export SANDBOX_DIRECTORY=/sandbox/davidbra
 
 # Setup shortcuts
 alias cdcomm='cd $BASE/src/bos/kernext/pool/common'
 alias cdserv='cd $BASE/src/bos/kernext/pool/server'
 alias cdtm='cd $BASE/src/bos/kernext/pool/server/tm'
 alias cdpfs='cd $BASE/src/bos/kernext/pool/server/pfs'
+alias cdvdisk='cd $BASE/src/bos/kernext/pool/server/vdisk'
+
+alias cdfvt='cd $BASE/test/itp/tests/vss/functional'
 
 alias cdbt="cd src link/src"
 alias cdbtt="cd src link/link/src"
@@ -24,6 +28,17 @@ alias cdbsrc='cd $BASE/src'
 alias rmsb="mksb -undo -auto"
 
 alias debug=/gsa/ausgsa/home/d/a/daco/pub/debug
+
+set_cscope() {
+    local directory=$1
+
+    if [ -z "$1" ]; then
+        directory=$(pwd)
+    fi
+
+    export CSCOPEDB=$directory/cscope.out
+    export CSCOPEFILELIST=$directory
+}
 
 
 # Wrapper around workon to set some env variables
