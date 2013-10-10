@@ -29,14 +29,6 @@ if [ "$SYSTEM" = "Darwin" ]; then
     add_dir_to_path /usr/local/Cellar/ruby/1.9.3-p194/bin
     # Homebrew path
     add_dir_to_path -before /usr/local/bin
-elif [ "$SYSTEM" = "AIX" ]; then
-    add_dir_to_path -before /gsa/ausgsa/projects/a/aixtools/bin
-    add_dir_to_path /usr/contrib/bin
-    add_dir_to_path /usr/java5/bin
-    add_dir_to_path /opt/freeware/bin
-    add_dir_to_path -before $HOME/local/stow/ruby-1.9.3-p0/bin
-
-    MANPATH=$MANPATH:/opt/freeware/man
 fi
 
 export PATH MANPATH
