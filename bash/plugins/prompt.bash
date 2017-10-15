@@ -9,6 +9,11 @@ ps1_git()
     printf "${YELLOWF} $(__git_ps1 "(git:%s)")${COLORRESET}"
 } # end ps1_git()
 
+ps1_virtualenv() {
+    if [ -n "$VIRTUAL_ENV" ]; then
+        printf "${PURPLEF}[v:$(basename $VIRTUAL_ENV)]${COLORRESET} "
+    fi
+} # end ps1_virtualenv()
 
 ps1_identity()
 {
@@ -68,7 +73,7 @@ ps1_set()
         esac
     done
 
-    PS1="\[\033[G\]\$(ps1_error)$(ps1_identity)\$(ps1_git)${separator}${prompt_char} "
+    PS1="\[\033[G\]\$(ps1_error)$(ps1_virtualenv)$(ps1_identity)\$(ps1_git)${separator}${prompt_char} "
 } # end ps1_set()
 
 export GIT_PS1_SHOWDIRTYSTATE=1
