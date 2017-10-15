@@ -13,9 +13,9 @@ ps1_git()
 ps1_identity()
 {
     if [[ $UID -eq 0 ]]; then
-        printf "${REDF}\u${COLORRESET}"
+        printf "${REDF}$USER${COLORRESET}"
     else
-        printf "${GREENF}\u${COLORRESET}"
+        printf "${GREENF}$USER${COLORRESET}"
     fi
 
     printf "@${CYANF}\h${COLORRESET}:${GREENF}\w${COLORRESET} "

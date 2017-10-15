@@ -1,4 +1,4 @@
-#!/usr/bin/env bash                                                              
+#!/usr/bin/env bash
 
 SYSTEM=`uname`
 
@@ -15,40 +15,40 @@ function source_directory {
     local dir=$1
 
     if [ -e "$dir" ]; then
-        if [ -d "$dir" ]; then                                                                                  
-            files=`find $dir -follow -name '*.bash' -print`                      
-                                                                                                                
-            for f in $files; do                                                                                 
-                source $f                                                                                       
-            done                                                                                                
-        fi                                                                                                      
-    fi                                                                                                          
-                                                                                                                
-    return 0                                                                                                    
-} # end source_directory                                                                                        
-                                                                                                                
-                                                                                                                
-                                                                                                                
-################################################################################ 
-# Main                                                                                                          
-################################################################################ 
+        if [ -d "$dir" ]; then
+            files=`find $dir -follow -name '*.bash' -print`
+            for f in $files; do
+                source $f
+            done
+        fi
+    fi
 
-if [ -e $BASH_CONFIG_DIRECTORY ] ; then                                                                         
-    # Load Libs                                                                                                 
-    for lib in "${LIBRARIES[@]}"; do                                                                            
-        source $BASH_LIB_DIRECTORY/$lib.bash                                                                    
-    done                                                                                                        
-                                                                                                                
-    # Load Plugins                                                                                              
-    source_directory $BASH_PLUGIN_DIRECTORY                                                                     
-fi                                                                                                              
-                                                                                                                
-# Options                                                                                                       
-set -o vi                                                                                                       
+    return 0
+} # end source_directory
+
+
+################################################################################ 
+# Main
+################################################################################ 
+if [ -e $BASH_CONFIG_DIRECTORY ] ; then
+    # Load Libs                       
+    for lib in "${LIBRARIES[@]}"; do 
+        source $BASH_LIB_DIRECTORY/$lib.bash
+    done                                   
+                                          
+    # Load Plugins
+    source_directory $BASH_PLUGIN_DIRECTORY
+fi               
+               
+# Options     
+set -o vi    
 
 if [ -e $HOME/etc/terminfo ]; then
     export TERMINFO=$HOME/etc/terminfo
 fi
-                                                                                                                
+
 alias source_bash="source $HOME/.bashrc"                           
 
+if [ -e $HOME/.local_bashrc ]; then
+    source $HOME/.local_bashrc
+fi
