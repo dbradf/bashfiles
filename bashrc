@@ -52,3 +52,4 @@ alias source_bash="source $HOME/.bashrc"
 if [ -e $HOME/.local_bashrc ]; then
     source $HOME/.local_bashrc
 fi
+
