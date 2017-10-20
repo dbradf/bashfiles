@@ -82,7 +82,7 @@ ps1_set()
         esac
     done
 
-    PS1="\[\033[G\]\$(ps1_error)$(ps1_virtualenv)$(ps1_identity)$(ps1_nvm)\$(ps1_git)${separator}${prompt_char} "
+    PS1="\[\033[G\]\$(ps1_error)\$(ps1_virtualenv)$(ps1_identity)\$(ps1_nvm)\$(ps1_git)${separator}${prompt_char} "
 } # end ps1_set()
 
 export GIT_PS1_SHOWDIRTYSTATE=1
