@@ -19,7 +19,7 @@ add_dir_to_path() {
 } # end add_dir_to_path
 
 # local tools
-add_dir_to_path -before $HOME/local/bin $HOME/bin
+add_dir_to_path -before $HOME/local/bin $HOME/bin $HOME/.local/bin
 
 
 if [ "$SYSTEM" = "Darwin" ]; then
